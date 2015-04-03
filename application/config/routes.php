@@ -37,11 +37,21 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+// $route['404_override'] = '';
 
-$route['default_controller'] = "main_index";
-$route['admin'] = "admin/index";
-$route['404_override'] = '';
+// $route['default_controller'] = "main";
+Route::root ('main');
 
+// $route['admin'] = "admin/main";
+Route::get ('admin', 'admin/main@index');
+
+// $route['main/index/(:num)/(:num)'] = "main/aaa/$1/$2";
+// Route::get ('main/index/(:num)/(:num)', 'main@aaa($1, $2)');
+// Route::post ('main/index/(:num)/(:num)', 'main@aaa($1, $2)');
+// Route::put ('main/index/(:num)/(:num)', 'main@aaa($1, $2)');
+// Route::delete ('main/index/(:num)/(:num)', 'main@aaa($1, $2)');
+// Route::controller ('main', 'main');
+  // whit get、post、put、delete prefix
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

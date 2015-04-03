@@ -1,4 +1,75 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 OA Wu Design
+ */
+
+class Route {
+	static $route = array ();
+	static $methods = array ('get', 'post', 'put', 'delete');
+
+  public function __construct () {
+	}
+
+	public static function root ($controller) {
+		$controller = array_filter (explode ('@', $controller), function ($t) { return $t || $t === '0'; });
+		self::$route['/'] = array ('get' => implode ('/', $controller));
+	}
+
+	public static function controller ($path, $controller) {
+		$path = array_filter (explode ('/', $path));
+		$controller = array_filter (explode ('@', $controller), function ($t) { return $t || $t === '0'; });
+
+		if (!$controller)
+			show_error ("Route 使用方法錯誤!<br/>尚未定義: Route::" . $name . " 的方法!");
+
+		$array = array ();
+		$controller = array_shift ($controller);
+
+		$data = read_file (APPPATH . 'controllers' . DIRECTORY_SEPARATOR . $controller . EXT);
+    preg_match_all ('/(public\s+)?function\s*(?P<methods>(^[^_])*[A-Za-z]*)\s*\(/', $data, $matches);
+
+		if ($methods = $matches['methods'])
+			foreach ($methods as $method) {
+				$pattern = '/(?P<key>' . implode ('|', array_map (function ($t) { return '^(' . $t . ')'; }, self::$methods)) . ')/';
+
+				if (preg_match ($pattern, $method, $matches) && isset ($matches['key'])) {
+					$action = $matches['key'];
+					$matches = array_filter (preg_split ($pattern, $method));
+					$uri = array_shift ($matches);
+				} else {
+					$action = 'get';
+					$uri = $method;
+				}
+
+				if ($uri !== null) {
+					self::$action (implode ('/', array_merge ($path, array ($uri))), $controller . '@' . $method);
+					if ($method === 'index')
+						self::$action (implode ('/', array_merge ($path, array ())), $controller . '@' . $method);
+				}
+			}
+	}
+
+	public static function __callStatic ($name, $arguments) {
+
+		if (in_array (strtolower ($name), self::$methods) && (count ($arguments) == 2)) {
+			$path = array_filter (explode ('/', $arguments[0]));
+			$controller = array_filter (preg_split ('/[@,\(\)\s]+/', $arguments[1]), function ($t) { return $t || $t === '0'; });
+
+			if (count ($controller) < 2)
+				array_push ($controller, 'index');
+
+			self::$route[implode ('/', $path)] = array (strtolower ($name) => implode ('/', $controller));
+		} else {
+			show_error ("Route 使用方法錯誤!<br/>尚未定義: Route::" . $name . " 的方法!");
+		}
+	}
+
+	public static function getRoute () {
+		return self::$route;
+	}
+}
 /**
  * CodeIgniter
  *
@@ -139,11 +210,14 @@ class CI_Router {
 		}
 
 		$this->routes = ( ! isset($route) OR ! is_array($route)) ? array() : $route;
+		$this->routes = array_merge ($this->routes, Route::getRoute ());
 		unset($route);
 
 		// Set the default controller so we can display it in the event
 		// the URI doesn't correlated to a valid controller.
 		$this->default_controller = ( ! isset($this->routes['default_controller']) OR $this->routes['default_controller'] == '') ? FALSE : strtolower($this->routes['default_controller']);
+		if (!$this->default_controller)
+			$this->default_controller = isset($this->routes['/']['get']) ? $this->routes['/']['get'] : false;
 
 		// Were there any query string segments?  If so, we'll validate them and bail out since we're done.
 		if (count($segments) > 0)
@@ -363,12 +437,18 @@ class CI_Router {
 	function _parse_routes()
 	{
 		// Turn the segment array into a URI string
+		if (isset ($_REQUEST['_method']) && in_array (strtolower ($_REQUEST['_method']), Route::$methods))
+			$_SERVER['REQUEST_METHOD'] = $_REQUEST['_method'];
+
+		$request_method = isset ($_SERVER['REQUEST_METHOD']) ? strtolower ($_SERVER['REQUEST_METHOD']) : 'get';
 		$uri = implode('/', $this->uri->segments);
 
 		// Is there a literal match?  If so we're done
-		if (isset($this->routes[$uri]))
+		if (isset($this->routes[$uri]) && is_string ($this->routes[$uri]))
 		{
 			return $this->_set_request(explode('/', $this->routes[$uri]));
+		} else if (isset ($this->routes[$uri]) && is_array ($this->routes[$uri]) && isset ($this->routes[$uri][$request_method])) {
+			return $this->_set_request(explode('/', $this->routes[$uri][$request_method]));
 		}
 
 		// Loop through the route array looking for wild-cards
@@ -378,14 +458,14 @@ class CI_Router {
 			$key = str_replace(':any', '.+', str_replace(':num', '[0-9]+', $key));
 
 			// Does the RegEx match?
-			if (preg_match('#^'.$key.'$#', $uri))
+			if (preg_match('#^'.$key.'$#', $uri) && (is_string ($val) || (is_array ($val) && isset ($val[$request_method]) && ($val = $val[$request_method]))))
 			{
+
 				// Do we have a back-reference?
 				if (strpos($val, '$') !== FALSE AND strpos($key, '(') !== FALSE)
 				{
 					$val = preg_replace('#^'.$key.'$#', $val, $uri);
 				}
-
 				return $this->_set_request(explode('/', $val));
 			}
 		}

@@ -59,6 +59,14 @@ class Config extends Singleton
 	private $model_directory;
 
 	/**
+	 * Directories for the auto_loading of model classes.
+	 *
+	 * @see activerecord_autoload
+	 * @var string
+	 */
+	private $model_directories = array ();
+
+	/**
 	 * Switch for logging.
 	 *
 	 * @var bool
@@ -195,6 +203,18 @@ class Config extends Singleton
 	 * @param string $dir Directory path containing your models
 	 * @return void
 	 */
+	public function set_model_directories()
+	{
+		$dirs = func_get_args ();
+		$this->model_directories = $dirs;
+	}
+
+	/**
+	 * Sets the directory where models are located.
+	 *
+	 * @param string $dir Directory path containing your models
+	 * @return void
+	 */
 	public function set_model_directory($dir)
 	{
 		$this->model_directory = $dir;
@@ -212,6 +232,25 @@ class Config extends Singleton
 			throw new ConfigException('Invalid or non-existent directory: '.$this->model_directory);
 
 		return $this->model_directory;
+	}
+
+	/**
+	 * Returns the model directorise.
+	 *
+	 * @return string
+	 * @throws ConfigException if specified directory was not found
+	 */
+	public function get_model_directorise()
+	{
+		return array_filter (array_map (function ($model_directory) {
+			return file_exists($model_directory) ? $model_directory : null;
+		}, $this->model_directories));
+		// if ($this->model_directories)
+		// 	foreach ($this->model_directories as $model_directory)
+		// 		if (!file_exists($model_directory))
+		// 			throw new ConfigException('Invalid or non-existent directory: '.$model_directory);
+
+		// return $this->model_directories;
 	}
 
 	/**

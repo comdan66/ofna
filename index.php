@@ -2,12 +2,7 @@
 /*
  * Set timezone to Asia taipei.
  */
-	date_default_timezone_set('Asia/Taipei');
-
-/*
- * 測試機 與 server 差別的相關設定，不被 git 給同步！
- */
-  require_once 'config.php';
+	date_default_timezone_set ('Asia/Taipei');
 
 /*
  *---------------------------------------------------------------
@@ -27,7 +22,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	// define('ENVIRONMENT', 'development');
+	define ('ENVIRONMENT', 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -37,22 +32,21 @@
  * By default development will show errors but testing and live will hide them.
  */
 
-if (defined('ENVIRONMENT'))
-{
-	switch (ENVIRONMENT)
-	{
-		case 'test':
-			error_reporting(E_ALL);
+if (defined('ENVIRONMENT')) {
+	switch (ENVIRONMENT) {
+		case 'development':
+		case 'staging':
+			error_reporting (E_ALL);
       ini_set ('display_errors', 1);
 		break;
-	
-		case 'server':
-			error_reporting(0);
+
+		case 'production':
+			error_reporting (0);
       ini_set ('display_errors', 0);
 		break;
 
 		default:
-			exit('The application environment is not set correctly.');
+			exit ('The application environment is not set correctly.');
 	}
 }
 
@@ -201,30 +195,6 @@ if (defined('ENVIRONMENT'))
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
 
-  // Resource relative base path.
-  define('RESOURCE_CSS_REL_PATH',   'resource' . '/' . 'css' . '/');
-  define('RESOURCE_JS_REL_PATH',    'resource' . '/' . 'javascript' . '/');
-  define('RESOURCE_IMG_REL_PATH',   'resource' . '/' . 'image' . '/');
-  define('RESOURCE_FILE_REL_PATH',  'resource' . '/' . 'file' . '/');
-  define('RESOURCE_FONT_REL_PATH',  'resource' . '/' . 'font' . '/');
-  define('RESOURCE_FLASH_REL_PATH', 'resource' . '/' . 'flash' . '/');
-  define('RESOURCE_AUDIO_REL_PATH', 'resource' . '/' . 'audio' . '/');
-  
-  // Resource absolute base path.
-  define('RESOURCE_CSS_ABS_PATH',   FCPATH . RESOURCE_CSS_REL_PATH);
-  define('RESOURCE_JS_ABS_PATH',    FCPATH . RESOURCE_JS_REL_PATH);
-  define('RESOURCE_IMG_ABS_PATH',   FCPATH . RESOURCE_IMG_REL_PATH);
-  define('RESOURCE_FILE_ABS_PATH',  FCPATH . RESOURCE_FILE_REL_PATH);
-  define('RESOURCE_FONT_ABS_PATH',  FCPATH . RESOURCE_FONT_REL_PATH);
-  define('RESOURCE_FLASH_ABS_PATH', FCPATH . RESOURCE_FLASH_REL_PATH);
-  define('RESOURCE_AUDIO_ABS_PATH', FCPATH . RESOURCE_AUDIO_REL_PATH);
-
-
-  // Upload relative base path.
-  define('UPLOAD_REL_PATH', 'upload' . '/');
-
-  // Upload absolute base path.
-  define('UPLOAD_ABS_PATH', FCPATH . UPLOAD_REL_PATH);
 
 /*
  * --------------------------------------------------------------------

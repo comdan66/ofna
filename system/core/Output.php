@@ -449,7 +449,7 @@ class CI_Output {
 		}
 		else
 		{
-			echo $output;  // Send it to the browser!
+			echo ENVIRONMENT !== 'production' ? $output : preg_replace (array ('/\>[^\S ]+/s', '/[^\S ]+\</s', '/(\s)+/s'), array ('>', '<', '\\1'), $output);  // Send it to the browser!
 		}
 
 		log_message('debug', "Final output sent to browser");
@@ -467,8 +467,10 @@ class CI_Output {
 	 */
 	function _write_cache($output)
 	{
-		$CI =& get_instance();
-		$path = $CI->config->item('cache_path');
+    	if (($CI =& get_instance ()) && !isset ($CI->cfg))
+      		$CI->load->library ('cfg');
+
+  	$path = implode (DIRECTORY_SEPARATOR, Cfg::system ('cache', 'output')) . DIRECTORY_SEPARATOR;
 
 		$ori_path = ($path == '') ? APPPATH.'cache/' : $path;
 		$cache_path = $ori_path . ($this->cache_append_path == null ? '' : $this->cache_append_path);
@@ -487,9 +489,9 @@ class CI_Output {
 		$uri =	$CI->config->item('base_url').
 				$CI->config->item('index_page').
 				$CI->uri->uri_string();
+		$uri = preg_replace ('/^http(s)?:\/\//', '', $uri);
 
-
-		$cache_path .= preg_replace ('/\/|:|\./i', '_', $uri);
+		$cache_path .= preg_replace ('/\/|:|\./i', '_|_', $uri);
 
 		if ( ! $fp = @fopen($cache_path, FOPEN_WRITE_CREATE_DESTRUCTIVE))
 		{
@@ -527,9 +529,14 @@ class CI_Output {
 	 */
 	function _display_cache(&$CFG, &$URI)
 	{
-		$cache_path = ($CFG->item('cache_path') == '') ? APPPATH.'cache/' : $CFG->item('cache_path');
+		// require_once (FCPATH . APPPATH . 'helpers' . DIRECTORY_SEPARATOR . 'config_helper.php');
+		// $path = Cfg::system ('output', 'cache_folder');
+		// require_once (FCPATH . APPPATH . 'config' . DIRECTORY_SEPARATOR . 'system' . DIRECTORY_SEPARATOR . 'output.php');
+		// $path = $output['cache_folder'];
+		require_once (FCPATH . APPPATH . 'config' . DIRECTORY_SEPARATOR . 'system' . DIRECTORY_SEPARATOR . 'cache.php');
+  	$path = implode (DIRECTORY_SEPARATOR, $cache['output']) . DIRECTORY_SEPARATOR;
 
-		$ori_path = ($CFG->item('cache_path') == '') ? APPPATH.'cache/' : $CFG->item('cache_path');
+		$ori_path = ($path == '') ? APPPATH.'cache/' : $path;
 		$cache_path = $ori_path . ($this->cache_append_path == null ? '' : $this->cache_append_path);
 
 		// Build the file path.  The file name is an MD5 hash of the full URI
@@ -537,7 +544,8 @@ class CI_Output {
 				$CFG->item('index_page').
 				$URI->uri_string;
 
-		$filepath = $cache_path.preg_replace ('/\/|:|\./i', '_', $uri);
+		$uri = preg_replace ('/^http(s)?:\/\//', '', $uri);
+		$filepath = $cache_path.preg_replace ('/\/|:|\./i', '_|_', $uri);
 
 		if ( ! @file_exists($filepath))
 		{

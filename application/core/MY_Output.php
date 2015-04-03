@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class MY_Output extends CI_Output {
- 
+
  /**
   * Deletes an output cache file from a given uri
   *
@@ -11,16 +11,19 @@ class MY_Output extends CI_Output {
   */
  public function delete_cache($uri = '', $cache_append_path = null)
  {
-  $CI =& get_instance();
-  $path = $CI->config->item('cache_path');
-  
+  if (($CI =& get_instance ()) && !isset ($CI->cfg))
+    $CI->load->library ('cfg');
+
+  $path = implode (DIRECTORY_SEPARATOR, Cfg::system ('cache', 'output')) . DIRECTORY_SEPARATOR;
+
   $cache_path = (($path == '') ? APPPATH.'cache/' : $path) . ($cache_append_path == null ? '' : $cache_append_path);
 
   $uri = $CI->config->item('base_url').
     $CI->config->item('index_page').
     $uri;
 
-  $cache_path .= preg_replace ('/\/|:|\./i', '_', $uri);
+  $uri = preg_replace ('/^http(s)?:\/\//', '', $uri);
+  $cache_path .= preg_replace ('/\/|:|\./i', '_|_', $uri);
 
   log_message("debug", sprintf("%s %s: clear cache from %s", __CLASS__, __FUNCTION__, $cache_path));
   if (is_file($cache_path)) {
@@ -40,18 +43,19 @@ class MY_Output extends CI_Output {
   */
  public function delete_all_cache($cache_append_path = null)
  {
-  if (!isset ($cache_append_path) || !is_string ($cache_append_path)) return false;
 
-  $CI =& get_instance();
-  $path = $CI->config->item('cache_path');
-  
-  $cache_path = (($path == '') ? APPPATH.'cache/' : $path) . ($cache_append_path == null ? '' : $cache_append_path);
-  
+  if (($CI =& get_instance ()) && !isset ($CI->cfg))
+    $CI->load->library ('cfg');
+
+  $path = implode (DIRECTORY_SEPARATOR, Cfg::system ('cache', 'output')) . DIRECTORY_SEPARATOR;
+
+  $cache_path = (($path == '') ? APPPATH.'cache/' : $path);
+
   $CI->load->helper ('directory');
-  return directory_delete (FCPATH . $cache_path);
+  return directory_clean (FCPATH . $cache_path);
  }
 }
 // END MY Output Class
 
 /* End of file MY_Output.php */
-/* Location: ./application/core/MY_Output.php */ 
+/* Location: ./application/core/MY_Output.php */

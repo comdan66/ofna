@@ -30,36 +30,44 @@ if ( ! defined('DS'))
 
 function activerecord_autoload($class_name)
 {
-	$path = ActiveRecord\Config::instance()->get_model_directory();
-	$root = realpath(isset($path) ? $path : '.');
+	// $path = ActiveRecord\Config::instance()->get_model_directory();
+  $paths = ActiveRecord\Config::instance()->get_model_directorise();
+	if ($paths) {
+    foreach ($paths as $path) {
+      $root = realpath(isset($path) ? $path : '.');
 
-	if (($namespaces = ActiveRecord\get_namespaces($class_name)))
-	{
-		$class_name = array_pop($namespaces);
-		$directories = array();
+      if (($namespaces = ActiveRecord\get_namespaces($class_name)))
+      {
+        $class_name = array_pop($namespaces);
+        $directories = array();
 
-		foreach ($namespaces as $directory)
-			$directories[] = $directory;
+        foreach ($namespaces as $directory)
+          $directories[] = $directory;
 
-		$root .= DS . implode($directories, DS);
-	}
+        $root .= DS . implode($directories, DS);
+      }
 
-    $file_name = "{$class_name}.php";
-	$file = $root.DS.$file_name;
+        $file_name = "{$class_name}.php";
+      $file = $root.DS.$file_name;
 
-	if (file_exists($file)) {
-		require $file;
-    } else {
+      if (file_exists($file)) {
+        require $file;
+      } else {
         $modules_path = APPPATH.'modules';
         if (is_dir($modules_path)) {
-            $modules = scandir(realpath($modules_path));
-            foreach ($modules as $module) {
-                $full_path = $modules_path.DS.$module.DS.'models'.DS.$file_name;
-                if ($module != '.' && $module != '..' && file_exists($full_path)) {
-                    require $full_path;
-                }
+          $modules = scandir(realpath($modules_path));
+          foreach ($modules as $module) {
+            $full_path = $modules_path.DS.$module.DS.'models'.DS.$file_name;
+            if ($module != '.' && $module != '..' && file_exists($full_path)) {
+              require $full_path;
             }
+          }
         }
+      }
     }
+  }
+  if (ENVIRONMENT === 'production') {
+    $cfg_ar = ActiveRecord\Config::instance ();
+    $cfg_ar->set_cache ("OrmCache://localhost");
+  }
 }
-?>

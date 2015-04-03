@@ -50,7 +50,7 @@ if ( ! function_exists('site_url'))
 
 /**
  * Base URL
- * 
+ *
  * Create a local URL based on your basepath.
  * Segments can be passed in as a string or an array, same as site_url
  * or a URL to a file can be passed in, e.g. to an image file.
@@ -63,6 +63,8 @@ if ( ! function_exists('base_url'))
 {
 	function base_url($uri = '')
 	{
+		if (!is_array ($uri))
+    	$uri = array_filter (func_get_args ());
 		$CI =& get_instance();
 		return $CI->config->base_url($uri);
 	}
@@ -150,7 +152,7 @@ if ( ! function_exists('anchor'))
 		}
 		else
 		{
-			$site_url = site_url($uri);
+			$site_url = base_url($uri);
 		}
 
 		if ($title == '')
@@ -158,7 +160,7 @@ if ( ! function_exists('anchor'))
 			$title = $site_url;
 		}
 
-		if ($attributes != '')
+		if ($attributes)
 		{
 			$attributes = _parse_attributes($attributes);
 		}
@@ -466,7 +468,7 @@ if ( ! function_exists('prep_url'))
  * Create URL Title
  *
  * Takes a "title" string as input and creates a
- * human-friendly URL string with a "separator" string 
+ * human-friendly URL string with a "separator" string
  * as the word separator.
  *
  * @access	public
@@ -478,7 +480,7 @@ if ( ! function_exists('url_title'))
 {
 	function url_title($str, $separator = '-', $lowercase = FALSE)
 	{
-		if ($separator == 'dash') 
+		if ($separator == 'dash')
 		{
 		    $separator = '-';
 		}
@@ -486,7 +488,7 @@ if ( ! function_exists('url_title'))
 		{
 		    $separator = '_';
 		}
-		
+
 		$q_separator = preg_quote($separator);
 
 		$trans = array(
@@ -530,10 +532,9 @@ if ( ! function_exists('redirect'))
 {
 	function redirect($uri = '', $method = 'location', $http_response_code = 302)
 	{
-		if ( ! preg_match('#^https?://#i', $uri))
-		{
-			$uri = site_url($uri);
-		}
+		if (is_array ($uri)) $uri = implode ('/', $uri);
+
+		if ( ! preg_match('#^https?://#i', $uri)) $uri = site_url($uri);
 
 		switch($method)
 		{

@@ -197,7 +197,7 @@ if ( ! function_exists('br'))
  */
 if ( ! function_exists('img'))
 {
-	function img($src = '', $index_page = FALSE)
+	function img($src = '', $index_page = FALSE, $attributes = '')
 	{
 		if ( ! is_array($src) )
 		{
@@ -215,7 +215,7 @@ if ( ! function_exists('img'))
 		foreach ($src as $k=>$v)
 		{
 
-			if ($k == 'src' AND strpos($v, '://') === FALSE)
+			if ($k == 'src' AND strpos($v, '://') === FALSE AND strpos($v, 'data:image') === FALSE)
 			{
 				$CI =& get_instance();
 
@@ -234,7 +234,7 @@ if ( ! function_exists('img'))
 			}
 		}
 
-		$img .= '/>';
+		$img .= (strlen ($attributes = trim ($attributes)) ? (' ' . $attributes . ' ') : '') . '/>';
 
 		return $img;
 	}
@@ -443,9 +443,9 @@ if ( ! function_exists('nbs'))
  * @param    string    type
  * @param    string    charset
  * @param    string    defer
- * @param    boolean    should index_page be added to the script path path 
+ * @param    boolean    should index_page be added to the script path path
  * @return   string
- */ 
+ */
 if ( ! function_exists('script_tag')) {
     function script_tag($src = '', $language = 'javascript', $type = 'text/javascript', $index_page = FALSE)
     {
@@ -485,6 +485,41 @@ if ( ! function_exists('script_tag')) {
         return $script;
     }
 }
+
+// ------------------------------------------------------------------------
+
+/**
+ * OA's Hidden Input Field
+ *
+ * @access	public
+ * @param	mixed
+ * @return	string
+ */
+if ( ! function_exists('oa_hidden'))
+{
+	function oa_hidden($attributes = array ())
+	{
+		return $attributes ? '<input type="hidden" ' . implode (' ', array_map (function ($attribute, $value) { return $attribute . '="' . $value . '"'; }, array_keys ($attributes), $attributes)) . ' />' : '';
+	}
+}
+
+// ------------------------------------------------------------------------
+
+/**
+ * OA's Meta Element
+ *
+ * @access	public
+ * @param	mixed
+ * @return	string
+ */
+if ( ! function_exists('oa_meta'))
+{
+	function oa_meta($attributes = array ())
+	{
+		return $attributes ? '<meta ' . implode (' ', array_map (function ($attribute, $value) { return $attribute . '="' . $value . '"'; }, array_keys ($attributes), $attributes)) . ' />' : '';
+	}
+}
+
 
 
 /* End of file html_helper.php */

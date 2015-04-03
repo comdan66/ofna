@@ -1,5 +1,7 @@
 /**
  * @author      OA Wu <comdan66@gmail.com>
- * @copyright   Copyright (c) 2014 OA Wu Design
+ * @copyright   Copyright (c) 2015 OA Wu Design
  */
-!function(e,n,t){var a,o=e.getElementsByTagName(n)[0];e.getElementById(t)||(a=e.createElement(n),a.id=t,a.src="//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=1482020658677319",o.parentNode.insertBefore(a,o))}(document,"script","facebook-jssdk"),window.fbAsyncInit=function(){FB.init({appId:"1482020658677319",channelUrl:"//matsu.ioa.tw",status:!0,cookie:!0,xfbml:!0}),FB.Event.subscribe("edge.create",function(e){$.ajax({url:$("#create_like_count_url").val(),data:{url:e},async:!0,cache:!1,dataType:"json",type:"POST",beforeSend:function(){}}).done(function(){}).fail(function(e){ajaxError(e)}).complete(function(){})}),FB.Event.subscribe("edge.remove",function(e){$.ajax({url:$("#remove_like_count_url").val(),data:{url:e},async:!0,cache:!1,dataType:"json",type:"POST",beforeSend:function(){}}).done(function(){}).fail(function(e){ajaxError(e)}).complete(function(){})})};
+
+$(function () {
+});

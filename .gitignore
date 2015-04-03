@@ -1,4 +1,7 @@
 .DS_Store
+sftp-config*
+
+application/cell/cache/*
 
 application/cache/*
 !application/cache/index.html
@@ -10,8 +13,14 @@ application/logs/*
 
 application/config/database.php
 
-upload/*
-!upload/index.html
-
 temp/*
-!temp/index.html
+
+upload/*
+
+assets/*
+
+command/compass/.sass-cache/*
+
+command/gulp/node_modules/*
+command/gulp/.sass-cache/*
+command/gulp/npm-debug.log
