@@ -1,0 +1,65 @@
+#content {
+  text-align: center;
+  width: 800px;
+  margin: 0px auto;
+}
+
+#content .big_title {
+  font-weight: bold;
+  font-size: 35px;
+  padding: 5px;
+  color: #666;
+}
+#content .small_title {
+  margin: 10px auto;
+  font-size: 15px;
+  border: 0px solid red;
+  color: #999;
+}
+#content .divider {
+  border: 1px solid #ddd;
+  margin: 5px auto;
+}
+#sign_in {
+  width: 400px;
+  margin: 20px auto;
+}
+#sign_in .title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 25px;
+  color: #666;
+}
+#sign_in #sign_in_form {
+  margin: 15px auto;
+}
+
+#sign_in #sign_in_form div.form-group {
+  margin: 0px auto;
+}
+
+#sign_in #sign_in_form div.form-group input[type="text"] {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+#sign_in #sign_in_form div.form-group input[type="password"] {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  display: inline-block;
+}
+#sign_in #sign_in_form #alert {
+  margin: 20px auto;
+  display: none;
+}
+#sign_in #sign_in_form .bottoms {
+  margin: 20px auto;
+}
+
+#sign_in #sign_in_form .bottoms div[class*="col"] {
+  padding: 0px;
+  text-align: center;
+}
+#sign_in #sign_in_form .bottoms button {
+  width: 120px;
+}

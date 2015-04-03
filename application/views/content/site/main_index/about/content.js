@@ -1,0 +1,5 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2014 OA Wu Design
+ */
+$(function(){$(".slideshow").OA_SlideShow(),$(".updated_at span").timeago()});

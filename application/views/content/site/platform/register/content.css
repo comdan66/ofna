@@ -1,0 +1,121 @@
+#content {
+  text-align: center;
+  width: 800px;
+  margin: 0px auto;
+}
+
+#content .big_title {
+  font-weight: bold;
+  font-size: 35px;
+  padding: 5px;
+  color: #666;
+}
+
+#content .small_title {
+  margin: 10px auto;
+  font-size: 15px;
+  border: 0px solid red;
+  color: #999;
+}
+
+#content .divider {
+  border: 1px solid #ddd;
+  margin: 5px auto;
+}
+
+#register_div {
+  width: 440px;
+  margin: 0px auto;
+}
+
+#register_div .title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 25px;
+  color: #666;
+  margin: 20px auto 10px auto;
+}
+
+#register_div #register_form { }
+
+#register_div #register_form div.form-group {
+  margin: 0px auto;
+  border: 0px solid red;
+}
+
+#register_div #register_form div.form-group .input-group-note {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  background-color: transparent;
+  border: 0px solid red;
+}
+
+#register_div #register_form div.form-group input, #register_div #register_form div.form-group select {
+  width: 400px;
+  display: inline-block;
+}
+
+#register_div #register_form div.form-group #account, #register_div #register_form div.form-group #email {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+#register_div #register_form div.form-group #password, #register_div #register_form div.form-group #nickname, #register_div #register_form div.form-group #birthday {
+  border-radius: 0px;
+  border-radius: 0px;
+}
+
+#register_div #register_form div.form-group #re_password, #register_div #register_form div.form-group #gender {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+#register_div #register_form div.form-group #birthday {
+  cursor: pointer;
+}
+
+#register_div #register_form #alert {
+  margin: 20px auto 20px 0px;
+  width: 420px;
+  display: none;
+}
+
+#register_div #register_form .bottoms {
+  margin: 20px auto;
+}
+
+#register_div #register_form .bottoms div[class*="col"] {
+  padding: 0px;
+  text-align: center;
+}
+#register_div #register_form .bottoms button {
+  width: 120px;
+}
+
+.ui-datepicker {
+  width: 300px;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+  width: 42%;
+}
+
+.true {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAaUlEQVR4nGNgwALyV1z6j46xqcOqadWJZxgYryG4NGEzhCyNWF1AjGZkL8E1E6sRBlAMQNaMLcCQNeLUjMt0bBrxaoYpxKURp7OxAWzhgjXQCNmIEde4AglfasObUIjWSHHaxmYIoVwFAL5PRBJ+aaItAAAAAElFTkSuQmCC) 50% no-repeat;
+}
+
+.false {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAW0lEQVR4nGNgwAZqt/zHwAQBVGH+imcYGL8hODRhNQSbRmRnYrUVWR02zTBASAzDucgKYYrR+ajOx+JEbACrV7AFFD4baWMz6X6mKLQpjmeKUhjFaRuLIYRyFQDzIvfs+KxCCwAAAABJRU5ErkJggg==) 50% no-repeat;
+}
+
+.loading {
+  background: url(data:image/gif;base64,R0lGODlhEAALALMMAOXp8a2503CHtOrt9L3G2+Dl7vL0+J6sy4yew1Jvp/T2+e/y9v///wAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCwAMACwAAAAAEAALAAAEK5DJSau91KxlpObepinKIi2kyaAlq7pnCq9p3NZ0aW/47H4dBjAEwhiPlAgAIfkECQsADAAsAAAAAAQACwAABA9QpCQRmhbflPnu4HdJVAQAIfkECQsADAAsAAAAABAACwAABDKQySlSEnOGc4JMCJJk0kEQxxeOpImqIsm4KQPG7VnfbEbDvcnPtpINebJNByiTVS6yCAAh+QQJCwAMACwAAAAAEAALAAAEPpDJSaVISVQWzglSgiAJUBSAdBDEEY5JMQyFyrqMSMq03b67WY2x+uVgvGERp4sJfUyYCQUFJjadj3WzuWQiACH5BAkLAAwALAAAAAAQAAsAAAQ9kMlJq73hnGDWMhJQFIB0EMSxKMoiFcNQmKjKugws0+navrEZ49S7AXfDmg+nExIPnU9oVEqmLpXMBouNAAAh+QQFCwAMACwAAAAAEAALAAAEM5DJSau91KxlpOYSUBTAoiiLZKJSMQzFmjJy+8bnXDMuvO89HIuWs8E+HQYyNAJgntBKBAAh+QQFFAAMACwMAAIABAAHAAAEDNCsJZWaFt+V+ZVUBAA7) 50% no-repeat;
+}
