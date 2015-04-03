@@ -5,10 +5,9 @@
 
 @import "_oa";
 
-#error {
-  width: 488px;
+.error {
+  position: relative;
+  display: inline-block;
+  width: 100%;
   color: rgba(202, 12, 12, 1);
-}
-#submit {
-  margin-bottom: 1px;
 }
