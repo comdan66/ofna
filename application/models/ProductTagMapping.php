@@ -5,9 +5,9 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class NewPic extends OaModel {
+class ProductTagMapping extends OaModel {
 
-  static $table_name = 'new_pics';
+  static $table_name = 'product_tag_mappings';
 
   static $has_one = array (
   );
@@ -16,13 +16,11 @@ class NewPic extends OaModel {
   );
 
   static $belongs_to = array (
-    array ('new', 'class_name' => 'Neww')
   );
 
   public function __construct ($attributes = array (), $guard_attributes = true, $instantiating_via_find = false, $new_record = true) {
     parent::__construct ($attributes, $guard_attributes, $instantiating_via_find, $new_record);
 
-    OrmImageUploader::bind ('name', 'NewPicNameImageUploader');
 
   }
 }

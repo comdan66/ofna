@@ -2,9 +2,16 @@
   <menu>
     <div id='wrapper'>
       <ul class='menu'>
-        <li class='item5'><a>上搞資料</a>
+        <li class='item5'><a>PRODUCT</a>
           <ul>
-            <li><a href="<?php echo base_url (array ('admin', 'news'));?>">NEWS</a></li>
+            <li><a href="<?php echo base_url (array ('admin', 'product'));?>">列表</a></li>
+            <li><a href="<?php echo base_url (array ('admin', 'product', 'add'));?>">新增</a></li>
+          </ul>
+        </li>
+        <li class='item5'><a>NEWS</a>
+          <ul>
+            <li><a href="<?php echo base_url (array ('admin', 'news'));?>">列表</a></li>
+            <li><a href="<?php echo base_url (array ('admin', 'news', 'add'));?>">新增</a></li>
           </ul>
         </li>
         <li class='item5'><a>網站管理員</a>

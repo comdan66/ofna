@@ -16,7 +16,7 @@ class News extends Admin_controller {
     if ($ids)
       array_map (function ($new) {
         array_map (function ($pic) {
-          $pic->file_name->cleanAllFiles ();
+          $pic->name->cleanAllFiles ();
           $pic->delete ();
         }, $new->pics);
 
@@ -70,7 +70,7 @@ class News extends Admin_controller {
     }
 
     array_map (function ($file) use ($new) {
-      if (!(verifyCreateOrm ($pic = NewPic::create (array ('new_id' => $new->id, 'file_name' => ''))) && $pic->file_name->put ($file)))
+      if (!(verifyCreateOrm ($pic = NewPic::create (array ('new_id' => $new->id, 'name' => ''))) && $pic->name->put ($file)))
         @$pic->delete ();
     }, $files);
 
@@ -109,12 +109,12 @@ class News extends Admin_controller {
 
     if ($del_ids = array_diff (column_array ($new->pics, 'id'), $pic_ids))
       array_map (function ($pic) {
-        $pic->file_name->cleanAllFiles ();
+        $pic->name->cleanAllFiles ();
         $pic->delete ();
       }, NewPic::find ('all', array ('conditions' => array ('id IN (?) AND new_id = ?', $del_ids, $new->id))));
 
     array_map (function ($file) use ($new) {
-      if (!(verifyCreateOrm ($pic = NewPic::create (array ('new_id' => $new->id, 'file_name' => ''))) && $pic->file_name->put ($file)))
+      if (!(verifyCreateOrm ($pic = NewPic::create (array ('new_id' => $new->id, 'name' => ''))) && $pic->name->put ($file)))
         @$pic->delete ();
     }, $files);
     

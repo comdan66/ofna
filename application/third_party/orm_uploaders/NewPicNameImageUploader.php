@@ -5,7 +5,7 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class NewpicFile_nameImageUploader extends OrmImageUploader {
+class NewPicNameImageUploader extends OrmImageUploader {
 
   public function getVersions () {
     return array (

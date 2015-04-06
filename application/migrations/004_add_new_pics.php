@@ -11,7 +11,7 @@ class Migration_Add_new_pics extends CI_Migration {
       "CREATE TABLE `new_pics` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `new_id` int(11) NOT NULL,
-        `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+        `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
         `created_at` datetime NOT NULL DEFAULT '" . date ('Y-m-d H:i:s') . "',
         `updated_at` datetime NOT NULL DEFAULT '" . date ('Y-m-d H:i:s') . "',
         PRIMARY KEY (`id`),

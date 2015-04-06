@@ -60,7 +60,7 @@
               <?php foreach ($new->pics as $pic) { ?>
                       <li>
                         <input type='hidden' name='pic_ids[]' value='<?php echo $pic->id;?>' />
-                        <img src="<?php echo $pic->file_name->url ('100w');?>" alt="" width="80" height="80">
+                        <img src="<?php echo $pic->name->url ('100w');?>" alt="" width="80" height="80">
                         <a class='del_pic'>刪除</a>
                       </li>
               <?php } ?>
