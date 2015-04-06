@@ -11,7 +11,7 @@
   width: 100%;
   margin-top: 50px;
   background: image-url('site/about_bg.png', false, false) no-repeat bottom center;
-  height: 550px;
+  height: 670px;
 
   > div {
     width: $mainWidth;
@@ -41,7 +41,7 @@
         float: left;
         display: inline-block;
         width: calc((100% - 30px) / 3);
-        
+
         &:not(:first-child) {
           margin-left: 15px;
         }
@@ -55,6 +55,8 @@
           text-align: left;
           font-size: 13px;
           line-height: 20px;
+          line-height: 24px;
+          color: rgba(69, 69, 69, .8);
         }
       }
     }
