@@ -4,10 +4,16 @@
  */
 
 $(function() {
-  var index = 0;
+  var price_index = 0;
+  var block_index = 0;
+
+  $('#add_price').click (function () {
+    var obj = {index: price_index++};
+    $(_.template ($('#_price').html (), obj) (obj)).insertAfter ($('table').last ());
+  });
 
   $('#add_block').click (function () {
-    var obj = {index: index++};
+    var obj = {index: block_index++};
     $(_.template ($('#_block').html (), obj) (obj)).insertAfter ($('table').last ());
   });
 

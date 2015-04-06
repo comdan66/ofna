@@ -11,16 +11,6 @@ $(function() {
     $(_.template ($('#_block').html (), obj) (obj)).insertAfter ($('table').last ());
   });
 
-  $('body').on ('click', '.add_item', function () {
-    var $t = $(this).parents ('table');
-    var index = $t.data ('index');
-    var c = $t.data ('count');
-    $t.data ('count', c + 1);
-
-    var obj = {index: index, c: c};
-    $(_.template ($('#_item').html (), obj) (obj)).insertAfter ($t.find ('tr').last ());
-  });
-
   $('body').on ('click', '.delete', function () {
     $(this).parents ('table').remove ();
   });

@@ -11,6 +11,7 @@ class Migration_Add_product_tags extends CI_Migration {
       "CREATE TABLE `product_tags` (
           `id` int(11) NOT NULL AUTO_INCREMENT,
           `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+          `sort` int(11) NOT NULL DEFAULT '0',
           `created_at` datetime NOT NULL DEFAULT '" . date ('Y-m-d H:i:s') . "',
           `updated_at` datetime NOT NULL DEFAULT '" . date ('Y-m-d H:i:s') . "',
           PRIMARY KEY (`id`),

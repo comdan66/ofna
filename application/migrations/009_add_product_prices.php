@@ -11,7 +11,8 @@ class Migration_Add_product_prices extends CI_Migration {
       "CREATE TABLE `product_prices` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `product_id` int(11) NOT NULL,
-        `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+        `value_tw` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+        `value_en` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
         `created_at` datetime NOT NULL DEFAULT '" . date ('Y-m-d H:i:s') . "',
         `updated_at` datetime NOT NULL DEFAULT '" . date ('Y-m-d H:i:s') . "',
         PRIMARY KEY (`id`),
