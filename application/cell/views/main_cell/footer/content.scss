@@ -6,18 +6,21 @@
 @import "_oa";
 
 #footer {
-  margin-top: 50px;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
   display: inline-block;
   width: 100%;
+  height: $footerHeight;
+  background-color: rgba(22, 22, 22, .9);
 
   > div {
     display: inline-block;
     width: $mainWidth;
     margin: 0 auto;
     color: rgba(150, 150, 150, 1);
-    padding: 30px;
     font-size: 13px;
-    background-color: rgba(22, 22, 22, 1);
+    padding-top: 35px;
   }
 }

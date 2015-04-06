@@ -5,18 +5,17 @@
 
 @import "_oa";
 
-$navbarHeight: 80px;
-
 #header {
   position: fixed;
   top: 0;
   left: 0;
   display: block;
   width: 100%;
-  height: $navbarHeight;
+  height: $headerHeight;
   text-align: center;
   background-color: rgba(255, 255, 255, .55);
   z-index: 9999;
+  
   > div {
     display: inline-block;
     width: $mainWidth;

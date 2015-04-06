@@ -22,7 +22,7 @@ class Migration_Add_users extends CI_Migration {
     );
     $this->db->query (
       "INSERT INTO `users` (`id`, `account`, `password`, `login_count`, `logined_at`, `created_at`, `updated_at`)
-        VALUES (1, 'admin@ofna.com', '" . md5('123456') . "', 0, '2015-04-03 01:31:44', '2015-04-03 01:31:44', '2015-04-03 01:31:44');"
+        VALUES (1, 'admin@ofna.com', '" . md5 ('123456') . "', 0, '2015-04-03 01:31:44', '2015-04-03 01:31:44', '2015-04-03 01:31:44');"
     );
   }
   public function down () {
