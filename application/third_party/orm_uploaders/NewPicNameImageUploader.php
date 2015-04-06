@@ -11,7 +11,8 @@ class NewPicNameImageUploader extends OrmImageUploader {
     return array (
         '' => array (),
         '100w' => array ('resize', 100, 100, 'width'),
-        '120x80c' => array ('adaptiveResizeQuadrant', 120, 80, 'c')
+        '400w' => array ('resize', 400, 400, 'width'),
+        '221x155c' => array ('adaptiveResizeQuadrant', 221, 155, 'c')
       );
   }
 }
