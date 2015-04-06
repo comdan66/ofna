@@ -16,6 +16,7 @@ class ProductPic extends OaModel {
   );
 
   static $belongs_to = array (
+    array ('product', 'class_name' => 'Product')
   );
 
   public function __construct ($attributes = array (), $guard_attributes = true, $instantiating_via_find = false, $new_record = true) {

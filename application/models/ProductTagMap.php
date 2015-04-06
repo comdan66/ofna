@@ -5,9 +5,13 @@
  * @copyright   Copyright (c) 2015 OA Wu Design
  */
 
-class ProductTagMapping extends OaModel {
+class ProductTagMap extends OaModel {
 
-  static $table_name = 'product_tag_mappings';
+  static $table_name = 'product_tag_maps';
+
+  static $validates_uniqueness_of = array (
+    array (array ('product_id', 'product_tag_id'), 'message' => 'columns(product_id, product_tag_id) Repeat!')
+  );
 
   static $has_one = array (
   );

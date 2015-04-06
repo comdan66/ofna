@@ -13,6 +13,9 @@ class ProductTag extends OaModel {
   );
 
   static $has_many = array (
+    array ('product_tag_maps', 'class_name' => 'ProductTagMap'),
+
+    array ('products', 'class_name' => 'Product', 'through' => 'product_tag_maps')
   );
 
   static $belongs_to = array (
