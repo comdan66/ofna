@@ -1,5 +1,5 @@
 <section class="grid col-three-quarters mq2-col-full">
-  <h2>NEWS > list</h2>
+  <h2>NEWS > 列表</h2>
   <hr>
 
   <article id="navplace">

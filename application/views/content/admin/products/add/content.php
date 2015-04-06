@@ -1,5 +1,5 @@
 <section class="grid col-three-quarters mq2-col-full">
-  <h2>PRODUCT > create</h2>
+  <h2>PRODUCT > 新增</h2>
   <hr>
 
   <form action="<?php echo base_url (array ('admin', 'products', 'create'));?>" method="post" enctype="multipart/form-data" >

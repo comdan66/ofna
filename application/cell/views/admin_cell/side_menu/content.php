@@ -2,6 +2,11 @@
   <menu>
     <div id='wrapper'>
       <ul class='menu'>
+        <li class='item5'><a>BANNER</a>
+          <ul>
+            <li><a href="<?php echo base_url (array ('admin', 'banners'));?>">列表</a></li>
+          </ul>
+        </li>
         <li class='item5'><a>PRODUCT</a>
           <ul>
             <li><a href="<?php echo base_url (array ('admin', 'products', 'tags'));?>">標簽</a></li>

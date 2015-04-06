@@ -1,5 +1,5 @@
 <section class="grid col-three-quarters mq2-col-full">
-  <h2>NEWS > edit</h2>
+  <h2>NEWS > 修改</h2>
   <hr>
 
   <form action="<?php echo base_url (array ('admin', 'news', 'update', $new->id));?>" method="post" enctype="multipart/form-data" >
