@@ -2,6 +2,11 @@
   <menu>
     <div id='wrapper'>
       <ul class='menu'>
+        <li class='item5'><a>上搞資料</a>
+          <ul>
+            <li><a href="<?php echo base_url (array ('admin', 'news'));?>">NEWS</a></li>
+          </ul>
+        </li>
         <li class='item5'><a>網站管理員</a>
           <ul>
             <li><a href="<?php echo base_url (array ('admin', 'edit'));?>">修改帳號密碼</a></li>
