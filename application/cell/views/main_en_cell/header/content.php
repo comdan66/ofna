@@ -5,13 +5,13 @@
     </div>
     <div class='r'>
       <div class='m'>
-        <div class='i'>HOME</div>
-        <div class='i'>BRAND</div>
-        <div class='i'>NEWS</div>
-        <div class='i'>PRODUCT</div>
-        <div class='i'>STORE</div>
-        <div class='i'>HOW TO BUY</div>
-        <div class='i'>CONTACT</div>
+        <a class='i'>HOME</a>
+        <a class='i' data-go='about'>BRAND</a>
+        <a class='i' data-go='news'>NEWS</a>
+        <a class='i' data-go='product'>PRODUCT</a>
+        <a class='i' href='' target='_blank'>STORE</a>
+        <a class='i' data-go='howtobuy'>HOW TO BUY</a>
+        <a class='i' data-go='contact'>CONTACT</a>
       </div>
       <div class='s'>
         <a class='i f'></a>
