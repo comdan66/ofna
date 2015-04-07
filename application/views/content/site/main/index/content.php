@@ -1,8 +1,10 @@
-<?php echo render_cell ('main_cell', 'header', array ());?>
-<?php echo render_cell ('main_cell', 'banners', array ());?>
-<?php echo render_cell ('main_cell', 'about', array ());?>
-<?php echo render_cell ('main_cell', 'news', array ());?>
-<?php echo render_cell ('main_cell', 'product', array ());?>
-<?php echo render_cell ('main_cell', 'howtobuy', array ());?>
-<?php echo render_cell ('main_cell', 'contact', array ());?>
-<?php echo render_cell ('main_cell', 'footer', array ());?>
+
+
+<?php echo render_cell ($cell_class, 'header', array ());?>
+<?php echo render_cell ($cell_class, 'banners', array ());?>
+<?php echo render_cell ($cell_class, 'about', array ());?>
+<?php echo render_cell ($cell_class, 'news', array ());?>
+<?php echo render_cell ($cell_class, 'product', array ());?>
+<?php echo render_cell ($cell_class, 'howtobuy', array ());?>
+<?php echo render_cell ($cell_class, 'contact', array ());?>
+<?php echo render_cell ($cell_class, 'footer', array ());?>

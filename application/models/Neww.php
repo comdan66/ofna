@@ -10,7 +10,7 @@ class Neww extends OaModel {
   static $table_name = 'news';
 
   static $has_one = array (
-    array ('pic', 'class_name' => 'NewPic', 'order' => 'sort id', 'foreign_key' => 'new_id')
+    array ('pic', 'class_name' => 'NewPic', 'order' => 'id', 'foreign_key' => 'new_id')
   );
 
   static $has_many = array (

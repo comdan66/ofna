@@ -21,3 +21,19 @@ table {
     width: 100%;
   }
 }
+#navphilo {
+  @include clearfix();
+  
+  input {
+    float: left;
+    width: calc(50% - 60px);
+    + input {
+      margin-left: 10px;
+    }
+  }
+  button {
+    margin-top: 3px;
+    margin-left: 10px;
+    width: 100px;
+  }
+}

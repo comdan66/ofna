@@ -30,7 +30,7 @@ class Products extends Admin_controller {
   public function tags () {
     if ($this->has_post ()) {
 
-      if (($name = trim ($this->input_post ('name'))) && verifyCreateOrm (ProductTag::create (array ('name' => $name, 'sort' => ProductTag::count () + 1))))
+      if (($name_tw = trim ($this->input_post ('name_tw'))) && ($name_en = trim ($this->input_post ('name_en'))) && verifyCreateOrm (ProductTag::create (array ('name_tw' => $name_tw, 'name_en' => $name_en, 'sort' => ProductTag::count () + 1))))
         identity ()->set_session ('_flash_message', '新增成功!', true) && redirect (array ('admin', $this->get_class (), $this->get_method ()), 'refresh');
 
       if ($tags = $this->input_post ('tags')) {
@@ -41,8 +41,8 @@ class Products extends Admin_controller {
           }, ProductTag::find ('all', array ('conditions' => array ('id IN (?)', $ids))));
 
         array_map (function ($tag) {
-          if ($tag['id'] && trim ($tag['name']) && trim ($tag['sort']))
-            ProductTag::table ()->update ($set = array ('name' => trim ($tag['name']), 'sort' => trim ($tag['sort'])), array ('id' => $tag['id']));
+          if ($tag['id'] && trim ($tag['name_tw']) && trim ($tag['name_en']) && trim ($tag['sort']))
+            ProductTag::table ()->update ($set = array ('name_tw' => trim ($tag['name_tw']), 'name_en' => trim ($tag['name_en']), 'sort' => trim ($tag['sort'])), array ('id' => $tag['id']));
         }, $tags);
 
         if (identity ()->set_session ('_flash_message', '修改成功!', true))

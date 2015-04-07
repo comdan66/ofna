@@ -16,11 +16,11 @@
         <thead>
           <tr>
            <th width='20'><input type="checkbox" id='check_all'></th>
-           <th >日期</th>
+           <th width='100'>日期</th>
            <th width='100'>中文標題</th>
            <th width='100'>英文標題</th>
-           <th width='120'>中文敘述</th>
-           <th width='120'>英文敘述</th>
+           <th >中文敘述</th>
+           <th >英文敘述</th>
            <th width="40">修改</th>
           </tr>
         </thead>

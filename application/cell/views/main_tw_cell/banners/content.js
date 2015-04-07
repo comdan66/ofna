@@ -8,8 +8,12 @@ $(function () {
 
   $(window).resize (function () {
     var move = function (i) {
-
       var w = $(window).width ();
+      if (w < 990) {
+        w = 990;
+        $('#banners').css ({'width': w + 'px'});
+      }
+      
       var h = (w / 1200) * 800;
 
       $('#banners .banners').css ({'width': w * $('#banners .banners .banner').length + 'px', 'height': h + 'px'});

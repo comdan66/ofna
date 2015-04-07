@@ -14,9 +14,9 @@
         <div class='i'>CONTACT</div>
       </div>
       <div class='s'>
-        <div class='i'>F</div>
-        <div class='i'>En</div>
-        <div class='i'>Cn</div>
+        <a class='i f'></a>
+        <a class='i e<?php echo identity ()->get_session ('is_en') ? ' a' : '';?>' href='<?php echo base_url ('lang', 1);?>'></a>
+        <a class='i t<?php echo identity ()->get_session ('is_en') ? '' : ' a';?>' href='<?php echo base_url ('lang', 0);?>'></a>
       </div>
     </div>
   </div>
