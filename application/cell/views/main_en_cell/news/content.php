@@ -6,7 +6,7 @@
         <div class='r'>
     <?php foreach ($news as $new) { ?>
             <div class='n' data-id='<?php echo $new->id;?>'>
-              <img src='<?php echo $new->pic->name->url ('221x155c');?>' />
+              <img class='p' src='<?php echo $new->pic ? $new->pic->name->url ('221x155c') : '';?>' alt='<?php echo $new->$title;?>' title='<?php echo $new->$title;?>'/>
               <div class='d'><?php echo $new->date->format ('Y-m-d');?></div>
               <div class='t p'><?php echo $new->$title;?></div>
               <div class='c'><?php echo $new->$description;?></div>
