@@ -59,7 +59,6 @@
           margin-top: 13px;
           font-size: 15px;
           font-weight: bold;
-          cursor: pointer;
           @include overflow-docx3();
         }
         .c {
@@ -76,6 +75,8 @@
           margin-top: 20px;
           border-top: 1px solid rgba(143, 143, 143, 1);
           padding-top: 13px;
+        }
+        .p {
           cursor: pointer;
         }
       }
