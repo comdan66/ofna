@@ -35,7 +35,7 @@
         &:not(:nth-child(-n+1)) {
           margin-left: 10px;
         }
-        &:hover, &.active {
+        &:hover, &.a {
           border-bottom: 1px solid rgba(61, 60, 61, 1);
         }
       }
@@ -60,7 +60,7 @@
           cursor: pointer;
           @include border-radius(50px);
 
-          &.now {
+          &.n {
             margin-top: 0;
             width: 16px;
             height: 16px;
@@ -87,7 +87,6 @@
         display: inline-block;
         width: 240px;
         height: 175px;
-        background-color: rgba(0, 0, 255, 0.2);
         
         &:not(:nth-child(4n+1)) {
           margin-left: 10px;
@@ -125,14 +124,144 @@
               font-weight: bold;
               border-bottom: 1px solid rgba(255, 255, 255, 1);
               padding-bottom: 9px;
+              @include overflow-docx3();
             }
             &:last-child {
               margin-top: 8px;
               font-size: 13px;
+              word-break: break-all;
             }
           }
         }
       }
     }
   }
+}
+
+.product_pop {
+  position: fixed;
+  top: $headerHeight;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: calc(100% - #{$headerHeight + $footerHeight});
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 9999;
+
+  > div {
+    display: inline-block;
+    width: $mainWidth;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rgba(34, 34, 34, .9);
+    text-align: center;
+    overflow: auto;
+
+    &, * {
+      color: rgba(255, 255, 255, 1);
+    }
+    .c {
+      text-align: right;
+      padding-right: 10px;
+      
+      > span {
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        color: rgba(255, 255, 255, .75);
+
+        &:active, &:hover {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+ 
+    .li {
+      margin-top: 25px;
+      margin-bottom: 5px;
+      height: 5px;
+      background-color: rgba(255, 255, 255, 1);
+    }
+    .cr {
+      display: inline-block;
+      width: 880px;
+      margin: 0 auto;
+      .w {
+        @include split-left(431px);
+
+        .l, .r {
+          .b {
+            .t {
+              font-size: 15px;
+              font-weight: bold;
+              border-bottom: 2px solid rgba(255, 255, 255, 1);
+              text-align: left;
+              padding-bottom: 10px;
+              @include overflow-docx3();
+            }
+            .d {
+              margin-top: 8px;
+              font-size: 13px;
+              color: rgba(255, 255, 255, .75);
+              text-align: left;
+              word-break: break-all;
+            }
+            + .b {
+              margin-top: 15px;
+            }
+          }
+        }
+        .r {
+          width: calc(100% - 431px - 18px);
+        } 
+      }
+      .p {
+        @include split-left(431px);
+
+        .l, .r {
+        }
+        .l {
+          background-color: rgba(0, 128, 0, 0.2);
+          img {
+            width: 431px;
+          }
+        }
+        .r {
+          position: relative;
+          width: calc(100% - 431px - 18px);
+          height: 100%;
+
+          .t {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+
+            > div {
+              &:first-child {
+                font-size: 24px;
+              }
+              &:last-child {
+                color: rgba(255, 255, 255, .75);
+                font-size: 13px;
+              }
+            }
+          }
+          .b {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+            > div {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }  
 }

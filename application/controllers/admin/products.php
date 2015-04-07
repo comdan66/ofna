@@ -55,6 +55,25 @@ class Products extends Admin_controller {
          ->load_view (array ('tags' => $tags));
   }
 
+  private function _delete ($ids) {
+    if ($ids)
+      array_map (function ($product) {
+        array_map (function ($pic) {
+          $pic->name->cleanAllFiles ();
+          $pic->delete ();
+        }, $product->pics);
+
+        ProductBlock::delete_all (array ('conditions' => array ('product_id = ?', $product->id)));
+        ProductPrice::delete_all (array ('conditions' => array ('product_id = ?', $product->id)));
+        ProductTagMap::delete_all (array ('conditions' => array ('product_id = ?', $product->id)));
+
+        $product->delete ();
+      }, Product::find ('all', array ('conditions' => array ('id IN (?)', $ids))));
+
+    identity ()->set_session ('_flash_message', '刪除成功!', true);
+    redirect (array ('admin', $this->get_class ()), 'refresh');
+  }
+
   public function index ($offset = 0) {
     if ($delete_ids = $this->input_post ('delete_ids'))
       $this->_delete ($delete_ids);

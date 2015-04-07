@@ -9,12 +9,12 @@ $(function() {
 
   $('#add_price').click (function () {
     var obj = {index: price_index++};
-    $(_.template ($('#_price').html (), obj) (obj)).insertAfter ($('table.table_prices').length ? $('table.table_prices').last () : $('table').last ());
+    $(_.template ($('#_price').html (), obj) (obj)).insertAfter ($('table').last ());
   });
 
   $('#add_block').click (function () {
     var obj = {index: block_index++};
-    $(_.template ($('#_block').html (), obj) (obj)).insertAfter ($('table.table_blocks').length ? $('table.table_blocks').last () : $('table').last ());
+    $(_.template ($('#_block').html (), obj) (obj)).insertAfter ($('table').last ());
   });
 
   $('body').on ('click', '.delete', function () {

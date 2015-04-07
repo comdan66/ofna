@@ -13,9 +13,10 @@ $(function() {
       beforeSend: function () {}
     })
     .done (function (result) {
-      result.status && $li.remove () && $.jGrowl ('刪除成功');;
+      $.jGrowl (result.status && $(this).parents ('tr').remove () ? '刪除成功!' : '刪除失敗!');
+      location.reload ();
     })
-    .fail (function (result) {  })
+    .fail (function (result) { window.ajaxError (result); })
     .complete (function (result) { });
   });
 });

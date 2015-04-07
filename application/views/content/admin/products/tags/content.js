@@ -18,7 +18,7 @@ $(function() {
       $.jGrowl (result.status && $(this).parents ('tr').remove () ? '刪除成功!' : '刪除失敗!');
       location.reload ();
     }.bind ($(this)))
-    .fail (function (result) { })
+    .fail (function (result) { window.ajaxError (result); })
     .complete (function (result) { });
   });
 });

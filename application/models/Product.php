@@ -10,7 +10,7 @@ class Product extends OaModel {
   static $table_name = 'products';
 
   static $has_one = array (
-    array ('pic', 'class_name' => 'ProductPic', 'order' => 'id')
+    array ('pic', 'class_name' => 'ProductPic', 'order' => 'id ASC')
   );
 
   static $has_many = array (

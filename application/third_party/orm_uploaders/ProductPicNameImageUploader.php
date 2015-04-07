@@ -11,7 +11,8 @@ class ProductPicNameImageUploader extends OrmImageUploader {
     return array (
         '' => array (),
         '100w' => array ('resize', 100, 100, 'width'),
-        '120x80c' => array ('adaptiveResizeQuadrant', 120, 80, 'c')
+        '431w' => array ('resize', 431, 431, 'width'),
+        '240x175c' => array ('adaptiveResizeQuadrant', 240, 175, 'c')
       );
   }
 }

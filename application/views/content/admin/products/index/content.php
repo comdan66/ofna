@@ -16,11 +16,10 @@
         <thead>
           <tr>
            <th width='20'><input type="checkbox" id='check_all'></th>
-           <th >日期</th>
            <th width='100'>中文標題</th>
            <th width='100'>英文標題</th>
-           <th width='120'>中文敘述</th>
-           <th width='120'>英文敘述</th>
+           <th >中文敘述</th>
+           <th >英文敘述</th>
            <th width="40">修改</th>
           </tr>
         </thead>
@@ -30,7 +29,6 @@
             foreach ($products as $product) { ?>
               <tr>
                 <td><label><input type="checkbox" name='delete_ids[]' value='<?php echo $product->id;?>'></label></td>
-                <td class="textleft"><?php echo '';?></td>
                 <td class="textleft"><?php echo $product->title_tw;?></td>
                 <td class="textleft"><?php echo $product->title_en;?></td>
                 <td class="textleft"><?php echo $product->description_tw;?></td>
