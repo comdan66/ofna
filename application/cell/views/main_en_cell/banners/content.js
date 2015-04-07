@@ -9,10 +9,9 @@ $(function () {
   $(window).resize (function () {
     var move = function (i) {
       var w = $(window).width ();
-      if (w < 990) {
+      if (w < 990)
         w = 990;
-        $('#banners').css ({'width': w + 'px'});
-      }
+      $('#banners').css ({'width': w + 'px'});
       
       var h = (w / 1200) * 800;
 
