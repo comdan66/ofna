@@ -1,0 +1,95 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 OA Wu Design
+ */
+
+@import "_oa";
+
+#howtobuy {
+  margin-top: 80px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  > div {
+    display: inline-block;
+    width: $mainWidth;
+    margin: 0 auto;
+
+    .t {
+      font-size: 50px;
+      font-weight: bold;
+      text-align: left;
+    }
+    .bt {
+      margin-top: 45px;
+      margin-bottom: 2px;
+      // text-align: left;
+      border-bottom: 1px solid rgba(170, 170, 170, 1);
+      @include split-left(160px);
+      .l, .r {
+      }
+      .l {
+        position: relative;
+        font-size: 15px;
+        font-weight: bold;
+        padding-bottom: 10px;
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -3px;
+          display: inline-block;
+          height: 5px;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 1);
+        }
+      }
+    }
+    .b {
+      margin-top: 20px;
+      @include split-left(160px);
+      .l, .r {
+        height: 70px;
+        text-align: center;
+      }
+      .l {
+        border: 1px solid rgba(240, 240, 240, 1);
+      }
+      .r {
+        width: calc(100% - 160px - 20px);
+        text-align: left;
+
+        > div {
+          &:first-child {
+            font-weight: bold;
+            font-size: 20px;
+            span {
+              margin-top: 2px;
+              margin-left: 10px;
+              background-color: rgba(235, 235, 235, 1);
+              font-size: 12px;
+              display: inline-block;
+              padding: 3px 15px;
+            }
+          }
+          &:not(:first-child) {
+            font-size: 15px;
+            a {
+              color: rgba(39, 40, 34, 1);
+              text-decoration: none;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      + .b {
+        margin-top: 35px;
+      }
+    }
+  }
+}

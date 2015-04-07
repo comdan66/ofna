@@ -1,0 +1,63 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 OA Wu Design
+ */
+
+@import "_oa";
+
+#banners {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  .banners {
+    position: relative;
+    display: inline-block;
+    min-height: 800px;
+
+    .banner {
+      position: absolute;
+      height: 100%;
+      display: inline-block;
+      overflow: hidden;
+      @include transition(all .5s);
+
+      img {
+        min-width: 100%;
+      }
+    }
+  }
+  .points {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+
+    .points_c {
+      display: inline-block;
+      @include clearfix();
+     
+      .point {
+        float: left;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: rgba(39, 40, 34, .4);
+        cursor: pointer;
+        @include border-radius(50%);
+
+        &.now {
+          background-color: rgba(39, 40, 34, 1);
+        }
+        &:hover {
+          background-color: rgba(39, 40, 34, 1);
+        }
+        & + .point {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

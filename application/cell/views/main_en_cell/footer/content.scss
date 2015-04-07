@@ -1,0 +1,27 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 OA Wu Design
+ */
+
+@import "_oa";
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  display: inline-block;
+  width: 100%;
+  height: $footerHeight;
+  background-color: rgba(22, 22, 22, .9);
+
+  > div {
+    display: inline-block;
+    max-width: $mainWidth;
+    width: 100%;
+    margin: 0 auto;
+    color: rgba(150, 150, 150, 1);
+    font-size: 13px;
+    padding-top: 35px;
+  }
+}

@@ -1,0 +1,90 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2015 OA Wu Design
+ */
+
+@import "_oa";
+
+#contact {
+  margin-top: 80px;
+  margin-bottom: 80px + $footerHeight;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  > div {
+    display: inline-block;
+    width: $mainWidth;
+    margin: 0 auto;
+
+    .t {
+      font-size: 50px;
+      font-weight: bold;
+      text-align: left;
+    }
+    .d {
+      margin-top: 45px;
+      font-size: 24px;
+      text-align: left;
+    }
+
+    .c {
+      margin-top: 10px;
+      @include split-left(345px);
+      .l, .r {
+        border-top: 5px solid rgba(0, 0, 0, 1);
+        padding-top: 25px;
+        text-align: left;
+      }
+      .l {
+        div {
+          font-size: 15px;
+          &:not(:first-child) {
+            margin-top: 10px;
+          }
+        }
+      }
+      .r {
+        width: calc(100% - 345px - 35px);
+
+        input, textarea {
+          width: 100%;
+          padding: 10px;
+          resize: none;
+          border: 1px solid rgba(63, 63, 63, .6);
+          &:not(:first-child) {
+            margin-top: 15px;
+          } 
+          &:focus {
+            outline: 0;
+            border: 1px solid rgba(63, 63, 63, 1);
+          }
+        }
+        textarea {
+          height: 150px;
+        }
+        button {
+          width: 100%;
+          padding: 5px;
+          margin-top: 15px;
+          background-color: rgba(154, 154, 154, 1);
+          border-width: 0;
+          border-bottom: 3px solid rgba(93, 93, 93, 1);
+          color: rgba(255, 255, 255, 1);
+          font-size: 20px;
+          cursor: pointer;
+          &:hover {
+            background-color: rgba(170, 170, 170, 1);
+          }
+          &:active {
+            background-color: rgba(140, 140, 140, 1);
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
+      }
+    }
+
+  }
+}
