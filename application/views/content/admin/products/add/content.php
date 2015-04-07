@@ -47,7 +47,7 @@
                   <div class='checkbox'>
                     <input type='checkbox' name='tag_ids[]' id='tag_<?php echo $tag->id;?>' value='<?php echo $tag->id;?>' />
                     <span class='ckb-check'></span>
-                    <label for='tag_<?php echo $tag->id;?>'><?php echo $tag->name;?></label>
+                    <label for='tag_<?php echo $tag->id;?>'><?php echo $tag->name_tw;?>(<?php echo $tag->name_en;?>)</label>
                   </div>
           <?php }
               }?>
