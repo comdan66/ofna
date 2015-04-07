@@ -64,7 +64,7 @@ class News extends Admin_controller {
     $files = $this->input_post ('files[]', true, true);
     $blocks = $this->input_post ('blocks');
 
-    if (!verifyCreateOrm ($new = neww::create (array ('date' => $date, 'title_tw' => $title_tw, 'title_en' => $title_en, 'description_tw' => $description_tw, 'description_en' => $description_en)))) {
+    if (!verifyCreateOrm ($new = Neww::create (array ('date' => $date, 'title_tw' => $title_tw, 'title_en' => $title_en, 'description_tw' => $description_tw, 'description_en' => $description_en)))) {
       @$new->delete ();
       return $this->set_method ('add')->load_view (array ('message' => '新增失敗!'));
     }
