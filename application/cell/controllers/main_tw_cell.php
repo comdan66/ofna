@@ -44,9 +44,11 @@ class Main_tw_cell extends Cell_Controller {
     $news = Neww::find ('all', array ('order' => 'id ASC', 'offset' => 0, 'limit' => 6));
     $title = identity ()->get_session ('is_en') ? 'title_en' : 'title_tw';
     $description = identity ()->get_session ('is_en') ? 'description_en' : 'description_tw';
+    $content = identity ()->get_session ('is_en') ? 'content_en' : 'content_tw';
 
-    return $this->setUseCssList (true)
-                ->load_view (array ('news' => $news, 'title' => $title, 'description' => $description));
+    return $this->setUseJsList (true)
+                ->setUseCssList (true)
+                ->load_view (array ('news' => $news, 'title' => $title, 'description' => $description, 'content' => $content));
   }
 
   /* render_cell ('main_tw_cell', 'product', array ()); */
@@ -76,7 +78,8 @@ class Main_tw_cell extends Cell_Controller {
   //   return array ('time' => 60 * 60, 'key' => null);
   // }
   public function contact () {
-    return $this->setUseCssList (true)
+    return $this->setUseJsList (true)
+                ->setUseCssList (true)
                 ->load_view ();
   }
 

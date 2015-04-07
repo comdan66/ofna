@@ -59,6 +59,7 @@
           margin-top: 13px;
           font-size: 15px;
           font-weight: bold;
+          cursor: pointer;
           @include overflow-docx3();
         }
         .c {
@@ -75,6 +76,109 @@
           margin-top: 20px;
           border-top: 1px solid rgba(143, 143, 143, 1);
           padding-top: 13px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.news_pop {
+  position: fixed;
+  top: $headerHeight;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: calc(100% - #{$headerHeight + $footerHeight});
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 9999;
+
+  > div {
+    display: inline-block;
+    width: $mainWidth;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rgba(34, 34, 34, .9);
+    text-align: center;
+    overflow: auto;
+
+    &, * {
+      color: rgba(255, 255, 255, 1);
+    }
+    .c {
+      text-align: right;
+      padding-right: 10px;
+      
+      > span {
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        color: rgba(255, 255, 255, .75);
+
+        &:active, &:hover {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+ 
+    .cr {
+      display: inline-block;
+      width: 880px;
+      margin: 0 auto;
+
+      > div {
+        text-align: left;      
+        color: rgba(255, 255, 255, .75);
+      }
+      .li {
+        height: 5px;
+        margin: 30px auto;
+        background-color: rgba(255, 255, 255, 1);
+      }
+      .de {
+        font-size: 13px;
+      }
+      .t {
+        font-size: 24px;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        @include overflow-docx3();
+      }
+      .d {
+        font-size: 15px;
+        word-break: break-all;
+      }
+      .co {
+        @include split-left(400px);
+        .l, .r {
+        }
+        .l {
+          img {
+            width: 400px;
+
+            + img {
+              margin-top: 10px;
+            }
+          }
+        }
+        .r {
+          width: calc(100% - 400px - 30px);
+          .b {
+            .ti {
+              font-size: 15px;
+              font-weight: bold;
+              color: rgba(255, 255, 255, 1);
+              @include overflow-docx3();
+            }
+            .ds {
+              margin-top: 5px;
+              font-size: 13px;
+              word-break: break-all;
+            }
+            + .b {
+              margin-top: 20px;
+            }
+          }
         }
       }
     }

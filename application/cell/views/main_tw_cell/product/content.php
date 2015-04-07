@@ -53,7 +53,7 @@
 </script>
 
 <script id='_p' type='text/x-html-template'>
-  <div class='p' data-id='<%=id%>'>
+  <div class='p'>
     <img src='<%=src%>' alt='<%=title%>' title='<%=title%>' />
     <div>
       <div><%=title%></div>

@@ -25,7 +25,6 @@ $(function () {
       var $ds = $('#product .ds').css ({'background': '#fff'}).children ('div');
       for (var i = 0; i < result.page_count; i++)
        $ds.append ($('<div />').addClass ('d').addClass (i == page ? 'n' : null));
-      console.error (result);
 
       $('#product .ps').css ({'background': '#fff'}).append (result.products.map (function (t) {
         
@@ -48,7 +47,6 @@ $(function () {
         });
 
         obj = {
-          id: t.id,
           title: t.title,
           description: t.description,
           src: t.pics.length > 0 ? t.pics[0].url.c240x175 : ''
@@ -75,7 +73,6 @@ $(function () {
 
   $('body').on ('click', '#product .ds > div .d', function () {
     var page = $('#product .ds > div .d').index ($(this));
-    console.error (page);
     page = page < 0 ? 0 : page;
     getData ($('#product .ts .a').data ('id'), page);
   });
