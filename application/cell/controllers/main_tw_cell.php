@@ -42,7 +42,7 @@ class Main_tw_cell extends Cell_Controller {
   //   return array ('time' => 60 * 60, 'key' => null);
   // }
   public function news () {
-    $news = Neww::find ('all', array ('order' => 'id ASC', 'offset' => 0, 'limit' => 6));
+    $news = Neww::find ('all', array ('order' => 'id DESC', 'offset' => 0, 'limit' => 6));
     $title = identity ()->get_session ('is_en') ? 'title_en' : 'title_tw';
     $description = identity ()->get_session ('is_en') ? 'description_en' : 'description_tw';
     $content = identity ()->get_session ('is_en') ? 'content_en' : 'content_tw';

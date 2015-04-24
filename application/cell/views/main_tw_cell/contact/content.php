@@ -4,8 +4,7 @@
     <div class='d'>OFNA Ingentes Co., Ltd</div>
     <div class='c'>
       <div class='l'>
-        <div>No.81, Fude 2nd Rd., Xizhi Dist., New Taipei City</div>
-        <div>221, Taiwan (R.O.C)</div>
+        <div>新北市汐止區福德二路156巷2號6樓</div>
         <div><b>T</b> +886-2-8693-1920</div>
         <div><b>F</b> +886-2-8693-1920</div>
         <div><b>E-mail</b> ofna@ofna-bio.com</div>

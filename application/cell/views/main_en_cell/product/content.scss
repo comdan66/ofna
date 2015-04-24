@@ -30,6 +30,7 @@
         float: left;
         border-bottom: 1px solid transparent;
         padding: 3px 5px;
+        padding-top: 10px;
         cursor: pointer;
 
         &:not(:nth-child(-n+1)) {
