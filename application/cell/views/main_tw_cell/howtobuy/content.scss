@@ -15,7 +15,9 @@
     display: inline-block;
     width: $mainWidth;
     margin: 0 auto;
-
+    padding-left: 20px;
+    padding-right: 20px;
+    
     .t {
       font-size: 50px;
       font-weight: bold;

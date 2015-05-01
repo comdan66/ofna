@@ -1,5 +1,4 @@
 
-
 <?php echo render_cell ($cell_class, 'header', array ());?>
 <?php echo render_cell ($cell_class, 'banners', array ());?>
 <?php echo render_cell ($cell_class, 'about', array ());?>

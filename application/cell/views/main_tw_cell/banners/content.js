@@ -13,7 +13,7 @@ $(function () {
         w = 990;
       $('#banners').css ({'width': w + 'px'});
       
-      var h = (w / 1200) * 800;
+      var h = (w * 800) / 1200;
 
       $('#banners .banners').css ({'width': w * $('#banners .banners .banner').length + 'px', 'height': h + 'px'});
       $('#banners .banners .banner').map (function (j, t) {

@@ -23,7 +23,13 @@
     margin: 0 auto;
     height: 100%;
     @include split-left(320px);
-
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    &.mobile {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     .l, .r {
       height: 100%;
     }

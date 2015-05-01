@@ -16,6 +16,10 @@
   > div {
     width: $mainWidth;
     margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+
     > .t {
       height: 65px;
       @include clearfix();
@@ -53,7 +57,7 @@
         .c {
           margin-top: 10px;
           text-align: left;
-          font-size: 13px;
+          font-size: 15px;
           line-height: 20px;
           line-height: 24px;
           color: rgba(69, 69, 69, .8);

@@ -4,4 +4,5 @@
  */
 
 $(function () {
+  // $('#about, #contact, #footer, #header, #howtobuy, #news, #product').children ('div').addClass ('mobile');
 });
