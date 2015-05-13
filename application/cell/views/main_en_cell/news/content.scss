@@ -15,13 +15,13 @@
     display: inline-block;
     width: $mainWidth;
     margin: 0 auto;
-    @include clearfix();
     padding-left: 20px;
     padding-right: 20px;
+    @include clearfix();
     
     .l, .r {
       float: left;
-      width: 260px;
+      width: 220px;
     }
     .l {
       border-top: 1px dotted rgba(39, 40, 34, 1);
@@ -61,6 +61,7 @@
           margin-top: 13px;
           font-size: 15px;
           font-weight: bold;
+          cursor: pointer;
           @include overflow-docx3();
         }
         .c {
@@ -77,8 +78,6 @@
           margin-top: 20px;
           border-top: 1px solid rgba(143, 143, 143, 1);
           padding-top: 13px;
-        }
-        .p {
           cursor: pointer;
         }
       }
