@@ -14,7 +14,7 @@
         <a class='i' data-go='contact'>CONTACT</a>
       </div>
       <div class='s'>
-        <a class='i f'></a>
+        <a class='i f' href='https://www.facebook.com/ofnabio'></a>
         <a class='i e<?php echo identity ()->get_session ('is_en') ? ' a' : '';?>' href='<?php echo base_url (array ('lang', 1));?>'></a>
         <a class='i t<?php echo identity ()->get_session ('is_en') ? '' : ' a';?>' href='<?php echo base_url (array ('lang', 0));?>'></a>
       </div>
