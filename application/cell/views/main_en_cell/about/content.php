@@ -15,8 +15,8 @@
       <div class='l'>核心價值</div>
       <div class='r'>
         <div class='i'>Approach to the door, access to fashion and beauty and enjoy a turn back time journey.</div>
-        <div class='i'><img src='/resource/image/site/AltE00.jpg' /><p>Perfect, Safe, and focus are our faiths of product development.</p></div>
-        <div class='i'><img src='/resource/image/site/AltE01.jpg' /><p>Professional, kind, and listen are our goals of service.</p></div>
+        <div class='i'><img src='/resource/image/site/AltE00.jpg' /><p>are our faiths of product development.</p></div>
+        <div class='i'><img src='/resource/image/site/AltE01.jpg' /><p>are our goals of service.</p></div>
       </div>
     </div>
     <div class='c'>

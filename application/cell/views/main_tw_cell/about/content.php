@@ -13,8 +13,8 @@
       <div class='l'>核心價值</div>
       <div class='r'>
         <div class='i'>推開通往時尚與美麗的門，享受一趟時光倒流的旅程</div>
-        <div class='i'><img src='/resource/image/site/AltC00.jpg' /><p>完美、安全、專一，是我們研發產品的信念。</p></div>
-        <div class='i'><img src='/resource/image/site/AltC01.jpg' /><p>專業、親切、傾聽，是我們的服務宗旨。</p></div>
+        <div class='i'><img src='/resource/image/site/AltC00.jpg' /><p>是我們研發產品的信念。</p></div>
+        <div class='i'><img src='/resource/image/site/AltC01.jpg' /><p>是我們的服務宗旨。</p></div>
       </div>
     </div>
     <div class='c'>
