@@ -49,6 +49,7 @@ Route::post ('admin/update', 'admin/main@edit');
 Route::get ('admin/login', 'admin/main@login');
 Route::get ('admin/logout', 'admin/main@logout');
 Route::get ('lang/(:num)', 'main@set_lang($1)');
+Route::post ('send', 'main@send');
 
 // $route['main/index/(:num)/(:num)'] = "main/aaa/$1/$2";
 // Route::get ('main/index/(:num)/(:num)', 'main@aaa($1, $2)');

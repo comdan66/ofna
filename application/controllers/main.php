@@ -53,4 +53,22 @@ class Main extends Site_controller {
     identity ()->set_session ('is_en', $id ? true : false);
     redirect ('');
   }
+  public function send () {
+    $name = trim ($this->input_post ('name'));
+    $email = trim ($this->input_post ('email'));
+    $message = trim ($this->input_post ('comment'));
+
+    if ($name && $email && $message) {
+      $from = $email;
+      $to = 'ofna@ofna-bio.com';
+      $subject = "=?UTF-8?B?" . base64_encode ('Contact form') . "?=";
+
+      $body = '';
+      $body .= 'Name: ' . $name . "\n";
+      $body .= 'Email: ' . $email . "\n";
+      $body .= "Message: \n\n" . $message . "\n";
+
+      mail ($to, $subject, $body, "From: <$from>");
+    }
+  }
 }
