@@ -10,6 +10,7 @@
   display: inline-block;
   width: 100%;
   margin-top: 50px;
+  font-weight: bold;
 
   > div {
     width: $mainWidth;
@@ -52,7 +53,7 @@
           @include clearfix();
           display: inline-block;
           font-size: 14px;
-          
+
           + .i {
             margin-top: 15px;
           }
