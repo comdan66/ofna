@@ -48,7 +48,7 @@
         padding-left: 30px;
         padding-top: 20px;
         color: rgba(149, 149, 149, 1);
-        font-size: 14px;
+        font-size: 14px !important;
         .i {
           @include clearfix();
 
@@ -61,6 +61,7 @@
           p {
             float: left;
             margin-top: 7px;
+            font-size: 14px;
           }
         }
       }
