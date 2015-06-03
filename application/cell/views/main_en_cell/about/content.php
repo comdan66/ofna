@@ -4,11 +4,11 @@
     <div class='c'>
       <div class='l'>起源</div>
       <div class='r'>
-        OFNA devotes to skin care with natural ingredients harmoniously.<br/><br/>
-        Whole series hold an adherent that users are able to experience natural skin improvement in short time by simple and easy daily skin care without harmful ingredients.<br/><br/>
-        Pure herbal extractions stimulate metabolism of skin cells naturally, and strength renew ability of skin cells.<br/><br/>
-        Unite with newest bio-technology to treat particular skin and make it purely vitality and engaging.<br/><br/>
-        Several patent ingredients provided for noblest skin care. 
+        <div class='i'>OFNA devotes to skin care with natural ingredients harmoniously.</div>
+        <div class='i'>Whole series hold an adherent that users are able to experience natural skin improvement in short time by simple and easy daily skin care without harmful ingredients.</div>
+        <div class='i'>Pure herbal extractions stimulate metabolism of skin cells naturally, and strength renew ability of skin cells.</div>
+        <div class='i'>Unite with newest bio-technology to treat particular skin and make it purely vitality and engaging.</div>
+        <div class='i'>Several patent ingredients provided for noblest skin care.</div>
       </div>
     </div>
     <div class='c'>
@@ -22,8 +22,8 @@
     <div class='c'>
       <div class='l'>遠景</div>
       <div class='r'>
-        OFNA insists continuously develop, generously cost on investment, and provide best choice to customers. Also we tightly control the quality and ensure the rights for each customer. OFNA cautiously but forcefully works hard and insists to the products to run the business in Taiwan.<br/><br/>
-        Looking forward to the future, OFNA will ceaselessly create healthy, smooth skin for Asian females positively. OFNA will set foot on New Age movement Of skin care with you.
+        <div class='i'>OFNA insists continuously develop, generously cost on investment, and provide best choice to customers. Also we tightly control the quality and ensure the rights for each customer. OFNA cautiously but forcefully works hard and insists to the products to run the business in Taiwan.</div>
+        <div class='i'>Looking forward to the future, OFNA will ceaselessly create healthy, smooth skin for Asian females positively. OFNA will set foot on New Age movement Of skin care with you.</div>
       </div>
     </div>
   </div>
