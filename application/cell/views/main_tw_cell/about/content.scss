@@ -30,7 +30,7 @@
     .c {
       border-top: 1px solid rgba(85, 85, 85, 1);
       text-align: left;
-      @include split-left(170px);
+      @include split-left(220px);
 
       + .c {
         margin-top: 30px;
@@ -46,7 +46,7 @@
         color: rgba(254, 254, 254, 1);
       }
       .r {
-        padding-left: 100px;
+        padding-left: 45px;
         padding-top: 20px;
         color: rgba(149, 149, 149, 1);
         .i {
